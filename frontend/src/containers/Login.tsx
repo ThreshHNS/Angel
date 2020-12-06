@@ -22,6 +22,7 @@ export interface LoginProps {
 
 export interface SlideProps {
   setCurrentSlide: Dispatch<SetStateAction<string>>;
+  onClose: () => void;
 }
 
 const Auth: FunctionComponent<SlideProps> = (props) => {
@@ -47,7 +48,7 @@ const Auth: FunctionComponent<SlideProps> = (props) => {
 };
 
 const Email: FunctionComponent<SlideProps> = (props) => {
-  const { setCurrentSlide } = props;
+  const { setCurrentSlide, onClose } = props;
   const dispatch = useDispatch();
 
   const [loginValue, setLoginValue] = useState({ username: "", password: "" });
@@ -68,7 +69,10 @@ const Email: FunctionComponent<SlideProps> = (props) => {
     <>
       <h1>Войти через почту</h1>
       <h3 className="Login__title-info">
-        или <Link to={`/signup/`}>зарегистрироваться</Link>
+        или{" "}
+        <Link to={`/signup/`} onClick={onClose}>
+          зарегистрироваться
+        </Link>
       </h3>
       <div className="Login__inner">
         {error && <FormStatus mode="error">{error}</FormStatus>}
@@ -185,9 +189,9 @@ const Login: FunctionComponent<LoginProps> = (props: LoginProps) => {
   const renderSlide = () => {
     switch (currentSlide) {
       case "auth":
-        return <Auth setCurrentSlide={setCurrentSlide} />;
+        return <Auth setCurrentSlide={setCurrentSlide} onClose={onClose} />;
       case "email":
-        return <Email setCurrentSlide={setCurrentSlide} />;
+        return <Email setCurrentSlide={setCurrentSlide} onClose={onClose} />;
       case "reset":
         return <ResetPass />;
 
