@@ -69,12 +69,10 @@
 }
 
 .Button--lvl-primary {
-  background: linear-gradient(
-    90deg,
-    var(--button_primary_bg_left) 0%,
-    var(--button_primary_bg_right) 100%
-  );
   border: 1px solid var(--button_primary_border);
+  background: linear-gradient(-45deg, #78aaff, #3cffcf);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
   color: var(--white);
 }
 
@@ -83,6 +81,8 @@
   color: var(--button_secondary_text);
   border-radius: 48px;
   padding: 1rem 3rem;
+  -webkit-animation: pulse ease-in-out 1s infinite alternate;
+  animation: pulse ease-in-out 1s infinite alternate;
 }
 
 .Button--lvl-tertiary {

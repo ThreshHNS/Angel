@@ -10,6 +10,34 @@
   padding: 0 3rem;
 }
 
+.Pets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Pets__paws {
+  padding-right: 8rem;
+}
+
+.Pets__paws-item--blue {
+  opacity: 0;
+  animation: paw 6s infinite;
+  animation-delay: 2s;
+}
+
+.Pets__paws-item--green {
+  opacity: 0;
+  animation: paw 6s infinite;
+  animation-delay: 4s;
+}
+
+.Pets__paws-item--yellow {
+  opacity: 0;
+  animation: paw 6s infinite;
+  animation-delay: 6s;
+}
+
 .Pets__section {
   padding: 2rem 0;
 }
